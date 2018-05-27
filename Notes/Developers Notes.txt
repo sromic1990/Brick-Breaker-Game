@@ -1,0 +1,22 @@
+GameManager.cs
+--	56 - 58
+		Remove these and use LevelHandler class values instead.
+
+--	60
+		LevelHandler object is not used yet.
+
+--	98 - 103
+		I don't like the clumping of all these code here. This must be cleaned and put in place where it makes sense.
+		Now, its just getting repeated in EnableInteraction(), which is another function that must be managed in a state machine.
+
+--	113 - 200
+		I don't like this function.
+			1. It is an envelop function to create all non projectile object in the game.
+			2. It manages all pooled instance of each pool except the ball pool.
+			3. It uses a generic Random.Range to decide what should be generated. I feel that should be placed in some state machine. Using a randomized value maybe quick but its not clean.
+			4. Bricks are generated and numberOfBricksCreated increement is repeated.
+
+-- 203 - 215
+		I don't like this function.
+			1. It is again an envelop function for a lot of thngs, and I feel that this function is doing too much. 
+			Ideally, the function is resetting values and enabling interaction, but the individual
